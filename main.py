@@ -162,6 +162,11 @@ def search_notes(
 
 # ── Meta ──────────────────────────────────────────────────────────────────────
 
+@app.get("/health", include_in_schema=False)
+def health():
+    return {"status": "ok"}
+
+
 @app.get("/", include_in_schema=False)
 def root():
     return RedirectResponse(url="/docs")
